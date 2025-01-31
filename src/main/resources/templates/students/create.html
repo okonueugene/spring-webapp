@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <!-- Bootstrap CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div class="m-2">
+      <h1 class="text-success text-center">Create Student</h1>
+      <div class="card">
+        <div class="card-body">
+          <form
+            method="POST"
+            th:object="${studentsDto}"
+          >
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                placeholder="Enter Name"
+                name="name"
+                th:field="${studentsDto.name}"
+              />
+              <p
+                th:if="${#fields.hasErrors('name')}"
+                class="text-danger"
+                th:errorclass="text-danger"
+                th:errors="${studentsDto.name}"
+              ></p>
+            </div>
+            <div class="mb-3">
+              <label for="class" class="form-label">Class Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="className"
+                placeholder="Enter Class Name"
+                name="className"
+                th:field="${studentsDto.className}"
+              />
+              <p
+                th:if="${#fields.hasErrors('className')}"
+                class="text-danger"
+                th:errorclass="text-danger"
+                th:errors="${studentsDto.className}"
+              ></p>
+            </div>
+            <div class="mb-3">
+              <label for="profile" class="form-label">Profile</label>
+              <input
+                type="text"
+                class="form-control"
+                id="profile"
+                placeholder="Enter Profile"
+                name="profile"
+                th:field="${studentsDto.profile}"
+              />
+              <p
+                th:if="${#fields.hasErrors('profile')}"
+                class="text-danger"
+                th:errorclass="text-danger"
+                th:errors="${studentsDto.profile}"
+              ></p>
+            </div>
+            <div class="mb-3">
+              <label for="rollNo" class="form-label">Admission No</label>
+              <input
+                type="text"
+                class="form-control"
+                id="roll_no"
+                placeholder="Enter Admission No"
+                name="roll_no"
+                th:field="${studentsDto.rollNo}"
+              />
+              <p
+                th:if="${#fields.hasErrors('rollNo')}"
+                class="text-danger"
+                th:errorclass="text-danger"
+                th:errors="${studentsDto.rollNo}"
+              ></p>
+            </div>
+            <div class="row">
+              <div class="offset-sm-4 col-sm-4 d-grid">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+              <div class="col-sm-4 d-grid">
+                <a class="btn btn-outline-primary" href="/students">Cancel</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
